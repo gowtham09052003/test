@@ -1,0 +1,14 @@
+
+<mat-form-field appearance='outline' style="width: 100%;">
+    <mat-label>{{field.props!['label']}}</mat-label>
+    <mat-select #matSelectInput multiple [formControl]="thisFormControl"     
+    [formlyAttributes]="field" [required]="this.field?.props?.required">
+      <mat-option *ngFor="let op of this.opt?.options" [value]="op[this.valueProp]" (click)="selectionChange()">
+        {{op[this.valueProp]}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="this.thisFormControl.hasError('required')">{{this.field?.validation?.messages['required']}}</mat-error>
+    <mat-error *ngIf="this.thisFormControl.hasError('error')">{{this.field?.validation?.messages['msg']}}</mat-error>
+  </mat-form-field>
+
+  

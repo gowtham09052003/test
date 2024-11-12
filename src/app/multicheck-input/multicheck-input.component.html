@@ -1,0 +1,8 @@
+
+
+<section class="example-section"> 
+<mat-checkbox *ngFor="let option of this.opt.options;let i=index;"
+  [formlyAttributes]="field"  [checked]="option.value" 
+ [formControl]="thisFormControl"    (change)="onCheckBoxChanged($event.checked,i)"
+  >{{ option.label }}</mat-checkbox>  
+</section>
